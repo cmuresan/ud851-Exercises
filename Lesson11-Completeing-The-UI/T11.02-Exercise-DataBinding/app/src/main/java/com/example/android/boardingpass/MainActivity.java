@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
-    //TODO (3) Create a data binding instance called mBinding of type ActivityMainBinding
+    //COMPLETED (3) Create a data binding instance called mBinding of type ActivityMainBinding
     ActivityMainBinding mainBinding;
 
     @Override
@@ -39,24 +39,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        // TODO (4) Set the Content View using DataBindingUtil to the activity_main layout
+        // COMPLETED (4) Set the Content View using DataBindingUtil to the activity_main layout
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        // TODO (5) Load a BoardingPassInfo object with fake data using FakeDataUtils
+        // COMPLETED (5) Load a BoardingPassInfo object with fake data using FakeDataUtils
         BoardingPassInfo boardingPassInfo = FakeDataUtils.generateFakeBoardingPassInfo();
 
-        // TODO (9) Call displayBoardingPassInfo and pass the fake BoardingInfo instance
+        // COMPLETED (9) Call displayBoardingPassInfo and pass the fake BoardingInfo instance
         displayBoardingPassInfo(boardingPassInfo);
     }
 
     private void displayBoardingPassInfo(BoardingPassInfo info) {
 
-        // TODO (6) Use mBinding to set the Text in all the textViews using the data in info
+        // COMPLETED (6) Use mBinding to set the Text in all the textViews using the data in info
         mainBinding.textViewPassengerName.setText(info.passengerName);
         mainBinding.textViewOriginAirport.setText(info.originCode);
         mainBinding.textViewFlightCode.setText(info.flightCode);
         mainBinding.textViewDestinationAirport.setText(info.destCode);
-        // TODO (7) Use a SimpleDateFormat formatter to set the formatted value in time text views
+        // COMPLETED (7) Use a SimpleDateFormat formatter to set the formatted value in time text views
         SimpleDateFormat formatter = new SimpleDateFormat("hh:mm a", Locale.getDefault());
         String boardingTime = formatter.format(info.boardingTime);
         String departureTime = formatter.format(info.departureTime);
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         mainBinding.textViewBoardingTime.setText(boardingTime);
         mainBinding.textViewDepartureTime.setText(departureTime);
         mainBinding.textViewArrivalTime.setText(arrivalTime);
-        // TODO (8) Use TimeUnit methods to format the total minutes until boarding
+        // COMPLETED (8) Use TimeUnit methods to format the total minutes until boarding
         long minutesUntilBoarding = info.getMinutesUntilBoarding();
         long hoursUntilBoarding = TimeUnit.MINUTES.toHours(minutesUntilBoarding);
         long minutesLessHoursUntilBoarding = minutesUntilBoarding - TimeUnit.HOURS.toMinutes(hoursUntilBoarding);
